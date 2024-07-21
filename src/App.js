@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import Album from './components/album_page/album';
+import { Route, Routes } from 'react-router-dom';
+import Title from './components/title_page/title';
+import VoiceInput from './components/voice/voiceinput';
+import TextInput from './components/textinput/textinput';
+import TextFailure from   './components/textinput/textfailure';
+import Success from './components/photo/success';
+import Failure from './components/textinput/textfailure';
+import Save from './components/save/save';
+import NotSave from './components/save/notsave';
+import NotFound from './components/notFound';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+          <Route path="/" element={<Title />} />
+          <Route path='/album' element={<Album />} />
+        
+          <Route path="/voiceinput" element={<VoiceInput />} />
+          <Route path="/textinput" element={<TextInput />} />
+          <Route path="/textfailure" element={<TextFailure />} />
+          <Route path="/success" element={<Success />} />
+          <Route path="/failure" element={<Failure />} />
+          <Route path="/save" element={<Save />} />
+          <Route path="/notsave" element={<NotSave />} />
+
+          <Route path='*' element={<NotFound />} />
+      </Routes>
+    </>
+    
   );
 }
 
